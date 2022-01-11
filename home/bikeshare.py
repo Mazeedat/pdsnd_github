@@ -23,10 +23,10 @@ def get_filters():
         cities = ['chicago', 'new york city', 'washington'] 
         city = input('\n Would you like to see data for Chicago, New York City, or Washington?\n').lower()
         if city in cities:
-            print('\n {} is the city you will like to see data for'.format(city))
+            print('\n {} is the city you selected to see data for'.format(city))
             break
         else:
-            print('\n Wrong city selected')
+            print('\n Wrong selection made')
 
 
     # TO DO: get user input for month (all, january, february, ... , june)
