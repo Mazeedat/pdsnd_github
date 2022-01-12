@@ -6,7 +6,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
-def get_filters():
+def use_filters():
     """
     Asks user to specify a city, month, and day to analyze.
 
@@ -66,7 +66,7 @@ def get_filters():
     return city, month, day 
 
 
-def load_data(city, month, day):
+def loading_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
 
@@ -98,7 +98,7 @@ def load_data(city, month, day):
     return df
 
 
-def time_stats(df):
+def time_statistics(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -120,7 +120,7 @@ def time_stats(df):
     print('-'*40)
 
 
-def station_stats(df):
+def station_statistics(df):
     """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Commonly Used Stations and Trip...\n')
@@ -193,27 +193,27 @@ def user_stats(df,city):
 
 def raw_data(df):
     ''' 
-    Displays the data set used for the analysis in steps of ten rows based on users input
+    Displays the data set used for the analysis in steps of five rows based on users input
     
     Args:
     (dataframe) df 
     '''
     df = df.drop(columns = ['combination'], axis=1)
-    view_data = input('\n10 rows of raw data is available, would you like to review the data?  yes or no\n').lower()
+    view_data = input('\n5 rows of raw data is available, would you like to review the data?  yes or no\n').title()
     start_loc = 0
     while view_data == 'yes':
         print(df.iloc[start_loc :-1])
-        start_loc += 10
-        view_data = input("Do you wish to continue?: ").lower()
+        start_loc += 5
+        view_data = input("Do you wish to continue?: ").title()
         
 
 def main():
     while True:
-        city, month, day = get_filters()
-        df = load_data(city, month, day)
+        city, month, day = use_filters()
+        df = loading_data(city, month, day)
 
-        time_stats(df)
-        station_stats(df)
+        time_statistics(df)
+        station_statistics(df)
         trip_duration_stats(df)
         user_stats(df,city)
         raw_data(df)
