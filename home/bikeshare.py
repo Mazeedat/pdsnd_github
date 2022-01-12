@@ -193,17 +193,17 @@ def user_stats(df,city):
 
 def raw_data(df):
     ''' 
-    Displays the data set used for the analysis in steps of ten rows based on users input
+    Displays the data set used for the analysis in steps of five rows based on users input
     
     Args:
     (dataframe) df 
     '''
     df = df.drop(columns = ['combination'], axis=1)
-    view_data = input('\n10 rows of raw data is available, would you like to review the data?  yes or no\n').lower()
+    view_data = input('\n5 rows of raw data is available, would you like to review the data?  yes or no\n').lower()
     start_loc = 0
     while view_data == 'yes':
         print(df.iloc[start_loc :-1])
-        start_loc += 10
+        start_loc += 5
         view_data = input("Do you wish to continue?: ").lower()
         
 
