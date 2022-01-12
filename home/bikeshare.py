@@ -199,12 +199,12 @@ def raw_data(df):
     (dataframe) df 
     '''
     df = df.drop(columns = ['combination'], axis=1)
-    view_data = input('\n5 rows of raw data is available, would you like to review the data?  yes or no\n').lower()
+    view_data = input('\n5 rows of raw data is available, would you like to review the data?  yes or no\n').title()
     start_loc = 0
     while view_data == 'yes':
         print(df.iloc[start_loc :-1])
         start_loc += 5
-        view_data = input("Do you wish to continue?: ").lower()
+        view_data = input("Do you wish to continue?: ").title()
         
 
 def main():
